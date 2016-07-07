@@ -6,6 +6,12 @@ interface IMomlVariable {
     content: string
 };
 
+interface IOptions {
+    split: any,
+    varSplit: any,
+    arraySplit: any
+}
+
 export default class Parser {
     private globalOptions = {
         split: /-{3,}(\r\n|\r|\n)/g,
@@ -13,13 +19,13 @@ export default class Parser {
         arraySplit: /\[\]/
     };
 
-    constructor(options) {
+    constructor(options: IOptions) {
         if (options) {
             this.options(options);
         }
     }
 
-    options(options: Object): Object {
+    options(options: IOptions): Object {
         if (options) {
             Object.assign(this.globalOptions, options);
         }
