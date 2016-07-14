@@ -4,7 +4,7 @@
   "description": "A package that parses MOML formatted documents",
   "main": "index.js",
   "directories": {
-    "test": "test"
+    "test": "tsc && ava"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/AntJanus/MOML-parser#readme",
   "devDependencies": {
+    "ava": "^0.15.2",
     "should": "^9.0.2"
   }
 }

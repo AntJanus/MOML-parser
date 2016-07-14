@@ -1,7 +1,4 @@
 {
   "name": "moml-parser",
-  "dependencies": {},
-  "globalDependencies": {
-    "should": "registry:dt/should#8.1.1+20160608082854"
-  }
+  "dependencies": {}
 }

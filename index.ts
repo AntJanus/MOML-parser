@@ -1,4 +1,3 @@
-
 interface IMomlVariable {
     exists: boolean,
     isArray: boolean,
@@ -7,9 +6,9 @@ interface IMomlVariable {
 };
 
 interface IOptions {
-    split: any,
-    varSplit: any,
-    arraySplit: any
+    split?: any,
+    varSplit?: any,
+    arraySplit?: any
 }
 
 export default class Parser {
@@ -19,13 +18,13 @@ export default class Parser {
         arraySplit: /\[\]/
     };
 
-    constructor(options: IOptions) {
+    constructor(options?: IOptions) {
         if (options) {
             this.options(options);
         }
     }
 
-    options(options: IOptions): Object {
+    options(options?: IOptions): Object {
         if (options) {
             Object.assign(this.globalOptions, options);
         }
@@ -33,7 +32,7 @@ export default class Parser {
         return this.globalOptions;
     }
 
-    parseString(momlString: string): Object {
+    parseString(momlString: string): any {
         var parts = momlString.split(this.globalOptions.split);
 
         return parts.reduce((data: Object, part: string) => {
