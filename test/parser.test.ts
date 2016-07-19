@@ -1,7 +1,7 @@
 //testing
 import test from 'ava';
 
-import Parser from '../';
+import { Parser } from '../';
 
 const parser = new Parser();
 
