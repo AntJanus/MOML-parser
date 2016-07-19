@@ -13,7 +13,7 @@ interface IOptions {
 
 export default class Parser {
     private globalOptions = {
-        split: /-{3,}(\r\n|\r|\n)/g,
+        split: /-{3,}\r\n|\r|\n/g,
         varSplit: /^(\w+)(\[\])?:/,
         arraySplit: /\[\]/
     };
@@ -36,7 +36,11 @@ export default class Parser {
         var parts = momlString.split(this.globalOptions.split);
 
         return parts.reduce((data: Object, part: string) => {
-            var parsed = this.parseVariable(part);
+            if (part.trim().length < 1) {
+                return data;
+            }
+
+            var parsed = this.parseVariable(part.trim());
 
             if (!!parsed) {
                 if (parsed.isArray) {

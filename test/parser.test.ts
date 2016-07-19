@@ -42,7 +42,7 @@ test('existing options', t => {
     var opts = testParser.options();
 
     var options = {
-        split: /-{3,}(\r\n|\r|\n)/g,
+        split: /-{3,}\r\n|\r|\n/g,
         varSplit: /^(\w+)(\[\])?:/,
         arraySplit: /\[\]/
     }
@@ -55,7 +55,7 @@ test('options extension', t => {
     var opts = testParser.options();
 
     var options = {
-        split: /-{3,}(\r\n|\r|\n)/g,
+        split: /-{3,}\r\n|\r|\n/g,
         varSplit: /^(\w+)(\[\])?:/,
         arraySplit: /\[\]/
     };

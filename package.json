@@ -4,10 +4,10 @@
   "description": "A package that parses MOML formatted documents",
   "main": "index.js",
   "directories": {
-    "test": "tsc && ava"
+    "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tsc -p tsconfig.test.json && ava"
   },
   "repository": {
     "type": "git",
@@ -27,5 +27,12 @@
   "devDependencies": {
     "ava": "^0.15.2",
     "should": "^9.0.2"
+  },
+  "ava": {
+    "files": [
+      "./dist_test/**/*.test.*"
+    ],
+    "failFast": true,
+    "verbose": true
   }
 }
