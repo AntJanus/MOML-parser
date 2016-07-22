@@ -10,7 +10,8 @@
   },
   "files": [
     "./typings/index.d.ts",
-    "./test/parser.test.ts"
+    "./test/parser.test.ts",
+    "./test/compiler.test.ts"
   ],
   "exclude": [
     "node_modules"

@@ -22,7 +22,7 @@ export class Compiler {
         inlineLimit: 70
     };
 
-    private newLine: '\r\n';
+    private newLine = '\r\n';
 
     constructor(options?: IOptions) {
         if (options) {
@@ -42,30 +42,34 @@ export class Compiler {
         var compiledContent = '';
 
         if (momlObject.title) {
-          compiledContent += this.compileVariable('title', momlObject.title);
+            compiledContent += this.compileVariable('title', momlObject.title);
 
-          compiledContent += this.sectionSplit();
+            compiledContent += this.sectionSplit();
 
-          delete momlObject.title;
+            delete momlObject.title;
         }
+        
+        var propArr = Object.keys(momlObject);
 
         for (var propName in momlObject) {
-          var prop = momlObject[propName];
+            var prop = momlObject[propName];
 
-          if (typeof prop === 'Array') {
-              compiledContent += this.compileArray(propName, prop);
-              compiledContent += this.sectionSplit();
-          } else {
-              compiledContent += this.compileVariable(propName, prop);
-              compiledContent += this.sectionSplit();
-          }
+            if (typeof prop === 'Array') {
+                compiledContent += this.compileArray(propName, prop);
+            } else {
+                compiledContent += this.compileVariable(propName, prop);
+            }
+
+            if (propArr.indexOf(prop) < propArr.length - 1) {
+                compiledContent += this.sectionSplit();
+            }
         }
 
         return compiledContent;
     }
 
     compileVariable(name: string, content: string): string {
-        var output = `${name}${this.globalOptions.varSplit}`;
+        var output = `${name}${this.globalOptions.varSplit} `;
 
         if (content.length > this.globalOptions.inlineLimit) {
           output += `${this.newLine}${this.newLine}`;
