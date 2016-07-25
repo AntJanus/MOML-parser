@@ -35,3 +35,34 @@ test('compileArray', t => {
 
     t.is(compiledString, 'myArr[]: test1\r\n---\r\nmyArr[]: test2\r\n---\r\nmyArr[]: \r\n\r\nThis long string of text should be over seventy characters long and satisfy test conditions.');
 });
+
+test('compileString', t => {
+  var momlObj = {
+    main: 'one',
+    secondary: 'two',
+    testArr: [
+      'three',
+      'four'
+    ]
+  };
+
+  var compiledString = compiler.compileString(momlObj);
+
+  t.is(compiledString, 'main: one\r\n---\r\nsecondary: two\r\n---\r\ntestArr[]: three\r\n---\r\ntestArr[]: four');
+});
+
+test('compileString puts title on top', t => {
+  var momlObj = {
+    main: 'one',
+    secondary: 'two',
+    testArr: [
+      'three',
+      'four'
+    ],
+    title: 'my title'
+  };
+
+  var compiledString = compiler.compileString(momlObj);
+
+  t.is(compiledString, 'title: my title\r\n---\r\nmain: one\r\n---\r\nsecondary: two\r\n---\r\ntestArr[]: three\r\n---\r\ntestArr[]: four');
+});

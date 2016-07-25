@@ -48,19 +48,19 @@ export class Compiler {
 
             delete momlObject.title;
         }
-        
+
         var propArr = Object.keys(momlObject);
 
         for (var propName in momlObject) {
             var prop = momlObject[propName];
 
-            if (typeof prop === 'Array') {
+            if (Object.prototype.toString.call(prop) == '[object Array]') {
                 compiledContent += this.compileArray(propName, prop);
             } else {
                 compiledContent += this.compileVariable(propName, prop);
             }
 
-            if (propArr.indexOf(prop) < propArr.length - 1) {
+            if (propArr.indexOf(propName) < propArr.length - 1) {
                 compiledContent += this.sectionSplit();
             }
         }
