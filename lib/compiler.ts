@@ -1,5 +1,3 @@
-import 'core-js';
-
 export interface IMomlVariable {
     exists: boolean,
     isArray: boolean,
