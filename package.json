@@ -24,9 +24,11 @@
     "url": "https://github.com/AntJanus/MOML-parser/issues"
   },
   "homepage": "https://github.com/AntJanus/MOML-parser#readme",
+  "dependencies": {
+    "core-js": "^2.4.1"
+  },
   "devDependencies": {
     "ava": "^0.15.2",
-    "core-js": "^2.4.1",
     "should": "^9.0.2"
   },
   "ava": {

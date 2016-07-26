@@ -1,13 +1,13 @@
 import 'core-js';
 
-interface IMomlVariable {
+export interface IMomlVariable {
     exists: boolean,
     isArray: boolean,
     name: string,
     content: string
 };
 
-interface IOptions {
+export interface IOptions {
     split?: any,
     varSplit?: any,
     arraySplit?: any,
