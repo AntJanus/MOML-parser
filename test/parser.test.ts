@@ -5,9 +5,9 @@ import { Parser } from '../';
 
 const parser = new Parser();
 
-const fileString = 'title: Something \r\n\ -----\r\n\ content: something else.';
+const fileString = 'title: Something\r\n-----\r\ncontent: something else.';
 
-const fileStringArray = 'title: Something \r\n\ -----\r\n\ myarray[]: first element. \r\n\ -----\r\n\ myarray[]: second element.';
+const fileStringArray = 'title: Something\r\n-----\r\nmyarray[]: first element.\r\n\-----\r\n\myarray[]: second element.';
 
 const varString = 'title: Something';
 
