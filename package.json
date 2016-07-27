@@ -7,7 +7,6 @@
     "test": "test"
   },
   "scripts": {
-    "preinstall": "npm install -g typescript",
     "prepublish": "tsc --declaration",
     "test": "tsc -p tsconfig.test.json && ava"
   },
