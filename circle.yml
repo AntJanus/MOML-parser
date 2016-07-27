@@ -3,5 +3,5 @@ machine:
     version: 4.3.2
 
 dependencies:
-  post:
+  pre:
     - npm install -g typescript ava
